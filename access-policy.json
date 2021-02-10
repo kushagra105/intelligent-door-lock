@@ -1,0 +1,39 @@
+{ 
+    "Version": "2012-10-17", 
+    "Statement": [ 
+        {
+             "Effect": "Allow",
+             "Action": [ 
+                "logs:CreateLogGroup", 
+                "logs:CreateLogStream", 
+                "logs:PutLogEvents" 
+                ], 
+                "Resource": "arn:aws:logs:*:*:*"
+         }, 
+         {
+             "Effect": "Allow", 
+             "Action": [ 
+                "s3:GetObject"
+                 ], 
+                "Resource": [
+                     "arn:aws:s3:::guest-images-project/*" 
+                      ]
+          }, 
+          { 
+            "Effect": "Allow", 
+            "Action": [
+                 "dynamodb:PutItem" 
+            ], 
+            "Resource": [ 
+                "arn:aws:dynamodb:ap-south-1:076523273539:table/guest_collection"
+            ] 
+          }, 
+          { 
+            "Effect": "Allow", 
+            "Action": [ 
+                "rekognition:IndexFaces"
+             ],
+            "Resource": "*"
+                 }
+             ]
+        }
